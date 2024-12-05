@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
   <diagram name="Page-1" id="vs_xRYN3PJedcXhgR3uC">
-    <mxGraphModel dx="2074" dy="1222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="8ObBogy_hKi-1fXvcZVX-0" />
         <mxCell id="8ObBogy_hKi-1fXvcZVX-1" parent="8ObBogy_hKi-1fXvcZVX-0" />
@@ -16,7 +16,7 @@
         <mxCell id="8ObBogy_hKi-1fXvcZVX-5" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="8ObBogy_hKi-1fXvcZVX-3" vertex="1">
           <mxGeometry x="50" y="190" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="8ObBogy_hKi-1fXvcZVX-6" value="populate cells list" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="8ObBogy_hKi-1fXvcZVX-3" edge="1">
+        <mxCell id="8ObBogy_hKi-1fXvcZVX-6" value="populate workflows list" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="8ObBogy_hKi-1fXvcZVX-3" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="55" y="169.9999999999999" as="sourcePoint" />
             <Array as="points">
@@ -66,7 +66,7 @@
             <mxPoint x="110" y="245" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8ObBogy_hKi-1fXvcZVX-25" value="GET /workflow_cells?page=" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="8ObBogy_hKi-1fXvcZVX-1" source="8ObBogy_hKi-1fXvcZVX-4" target="8ObBogy_hKi-1fXvcZVX-13" edge="1">
+        <mxCell id="8ObBogy_hKi-1fXvcZVX-25" value="GET /workflows?page=" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="8ObBogy_hKi-1fXvcZVX-1" source="8ObBogy_hKi-1fXvcZVX-4" target="8ObBogy_hKi-1fXvcZVX-13" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="240" y="195" as="sourcePoint" />
           </mxGeometry>
@@ -76,7 +76,7 @@
             <mxPoint x="250" y="265" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8ObBogy_hKi-1fXvcZVX-27" value="&lt;span style=&quot;text-align: left;&quot;&gt;{cells: [{…}, {…}]}&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];rotation=0;labelBackgroundColor=#FFF2CC;fontFamily=Lucida Console;" parent="8ObBogy_hKi-1fXvcZVX-26" vertex="1" connectable="0">
+        <mxCell id="8ObBogy_hKi-1fXvcZVX-27" value="&lt;span style=&quot;text-align: left;&quot;&gt;{workflows: [{…}, {…}]}&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];rotation=0;labelBackgroundColor=#FFF2CC;fontFamily=Lucida Console;" parent="8ObBogy_hKi-1fXvcZVX-26" vertex="1" connectable="0">
           <mxGeometry relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
