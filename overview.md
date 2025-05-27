@@ -110,3 +110,56 @@ In some cases, the authentication scheme is imposed by the 3rd party service its
 When possible, it is recommended to use OIDC through the IdP (e.g. between the NaaVRE-workflow-service and Argo Workflows).
 
 ![Component authentication](./diagrams/architecture-components-communication.png)
+
+#### Fake authentication mode (development and testing)
+
+> [!CAUTION]
+> This is insecure, and should only be used for local development or testing.
+
+Existing API services can be configured to not verify access tokens against the IdP when run in development mode.
+In this case, they will accept any access token signed with the secret `fake-secret`.
+By requiring a fake token (instead of no token at all), we can test endpoints that retrieve some information about the user from the access token.
+
+To enable this mode, run the API service with the environment variable `DISABLE_AUTH=true`.
+
+To generate an access token, you can use [jwt-cli](https://github.com/mike-engel/jwt-cli).
+Example:
+
+```shell
+jwt encode --alg HS256 --secret fake-secret '{
+  "acr": "1",
+  "aud": "account",
+  "auth_time": 1728981738,
+  "azp": "naavre",
+  "email_verified": false,
+  "exp": 9000000000,
+  "groups": [
+    "users"
+  ],
+  "iat": 1728981738,
+  "iss": "https://naavre-dev.test/auth/realms/vre",
+  "jti": "ceaeb9a0-3f41-4bfa-a831-697fb5377e10",
+  "preferred_username": "test-user-2",
+  "realm_access": {
+    "roles": [
+      "default-roles-vre",
+      "offline_access",
+      "uma_authorization"
+    ]
+  },
+  "resource_access": {
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ]
+    }
+  },
+  "scope": "openid profile email",
+  "session_state": "486bf3e7-22c2-4428-8798-59ff3225b7af",
+  "sid": "fe19f674-3068-4e08-97ed-5f54caa98ea4",
+  "sub": "00000000-0000-0000-0000-000000000000",
+  "typ": "Bearer"
+}'
+```
