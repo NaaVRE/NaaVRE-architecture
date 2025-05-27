@@ -13,8 +13,8 @@ To facilitate integration, we prescribe a model for the communication between co
 The architecture is described in the following documents:
 
 1. [Overview](./overview.md)
-2. [Integration: CI-pipeline, deployment](./ci-and-deployment.md) (TODO)
-3. [Current implementation](./current-implementation.md) (TODO)
+2. [Integration: CI-pipeline, deployment](./ci-and-deployment.md)
+3. [Current implementation](./implementation.md)
 4. Guides
    - [Create API service](./guide-api-service.md) (TODO)
    - [Create UI component](./guide-ui-component.md) (TODO)
