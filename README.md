@@ -2,6 +2,7 @@
 
 This repository documents the Architecture of NaaVRE.
 It describes what is already implemented, and provides guidance for adding new components.
+For NaaVRE's user documentation, see [NaaVRE.net](http://NaaVRE.net).
 
 This architecture aims at de-coupling the code base as much as possible, across functionalities, and between backend and frontend.
 To that end, we adopt a microservice architecture for the backend.
