@@ -16,5 +16,6 @@ The architecture is described in the following documents:
 2. [Integration: CI-pipeline, deployment](./ci-and-deployment.md)
 3. [Current implementation](./implementation.md)
 4. Guides
+   - [Contributing to NaaVRE](./contributing-to-the-project.md)
    - [Create API service](./guide-api-service.md) (TODO)
    - [Create UI component](./guide-ui-component.md) (TODO)
