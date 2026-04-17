@@ -2,6 +2,7 @@
 
 This repository documents the Architecture of NaaVRE.
 It describes what is already implemented, and provides guidance for adding new components.
+For NaaVRE's user documentation, see [NaaVRE.net](http://NaaVRE.net).
 
 This architecture aims at de-coupling the code base as much as possible, across functionalities, and between backend and frontend.
 To that end, we adopt a microservice architecture for the backend.
@@ -16,5 +17,6 @@ The architecture is described in the following documents:
 2. [Integration: CI-pipeline, deployment](./ci-and-deployment.md)
 3. [Current implementation](./implementation.md)
 4. Guides
+   - [Contributing to NaaVRE](./contributing-to-the-project.md)
    - [Create API service](./guide-api-service.md) (TODO)
    - [Create UI component](./guide-ui-component.md) (TODO)
