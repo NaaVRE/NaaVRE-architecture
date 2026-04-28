@@ -6,7 +6,7 @@ Diagrams use crow's foot notation for cardinality. See the [mermaid documentatio
 
 ## Users and groups
 
-**Users** and **Groups** are stored in Keycloak.
+**Users** and **Groups** are stored in Keycloak (see [authentication](./overview.md#authentication)).
 Identity and group membership is carried by the OIDC access token (JWT).
 
 Group membership is used by services receiving the access token to grant permissions. Examples:
