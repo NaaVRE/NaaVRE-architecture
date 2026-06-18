@@ -1,12 +1,21 @@
 sequenceDiagram
     actor VREOps as VRE operator
     participant Git as Git repo<br>(.binder/)
+    participant HelmHook as Helm hook
+    participant EnvService as BinderEnv-service
     participant Binder as BinderHub
     participant GHCR as OCI registry (ghcr.io)
-    VREOps ->> Binder: helm upgrade
+    VREOps ->> HelmHook: helm upgrade
     alt if naavre_requirements changed
+        HelmHook->> EnvService: /build/gh/org/repo/latest
+        note over EnvService,Cat: this is identical to what happens on release of the VL
+        EnvService ->> Binder: /build/gh/org/repo/latest (build_only=true)
         Binder ->>+ Binder: trigger image build
         Binder ->> Git: clone latest
         Git ->> Binder: ...
         Binder ->>- GHCR: push image
+        Binder ->> EnvService: done
+        EnvService ->> Cat: POST /binder-envs or PUT /binder-envs/[id]
+        Cat ->> EnvService: done
+        EnvService ->> HelmHook: done
     end
