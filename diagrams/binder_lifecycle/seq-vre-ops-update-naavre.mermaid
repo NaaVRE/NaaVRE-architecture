@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor VREOps as VRE operator
+    participant Git as Git repo<br>(.binder/)
+    participant Binder as BinderHub
+    participant GHCR as OCI registry (ghcr.io)
+    VREOps ->> Binder: helm upgrade
+    alt if naavre_requirements changed
+        Binder ->>+ Binder: trigger image build
+        Binder ->> Git: clone latest
+        Git ->> Binder: ...
+        Binder ->>- GHCR: push image
+    end

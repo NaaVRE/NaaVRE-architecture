@@ -1,0 +1,6 @@
+sequenceDiagram
+    actor VREOps as VRE operator
+    participant Binder as BinderHub
+    participant GHCR as OCI registry (ghcr.io)
+    VREOps -->> Binder: configure job?
+    GHCR ->> Binder: pull image on all nodes for select VLs

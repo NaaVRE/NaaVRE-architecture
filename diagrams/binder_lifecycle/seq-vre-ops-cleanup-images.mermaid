@@ -1,0 +1,5 @@
+sequenceDiagram
+    actor VREOps as VRE operator
+    participant Binder as BinderHub
+    VREOps -->> Binder: configure job or binder feature?
+    Binder ->> Binder: cleanup images if VL not started for >7d

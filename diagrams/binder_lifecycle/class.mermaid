@@ -1,0 +1,9 @@
+classDiagram
+    VirtualLab o-- BinderEnv
+    class VirtualLab {
+        binder_env
+    }
+    class BinderEnv {
+        binder_ref
+        docker_image
+    }
