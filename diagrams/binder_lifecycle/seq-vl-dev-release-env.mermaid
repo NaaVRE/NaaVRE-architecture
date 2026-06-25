@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor VLDev as VL developer
+    participant Git as Git repo<br>(.binder/)
+    participant CI as CI (GH actions)
+    participant EnvService as BinderEnv-service
+    participant Binder as BinderHub
+    participant GHCR as OCI registry (ghcr.io)
+    participant Cat as Catalogue-service
+    VLDev ->> Git: create release
+    Git ->> CI: trigger virtual-lab-action
+    CI ->> CI: create or update `latest` git tag
+    CI ->> EnvService: /build/gh/org/repo/latest
+    EnvService ->> Binder: /build/gh/org/repo/latest (build_only=true)
+    Binder ->>+ Binder: trigger image build
+    Binder ->> Git: clone latest
+    Git ->> Binder: ...
+    Binder ->>- GHCR: push image
+    Binder ->> EnvService: done
+    EnvService ->> Cat: POST /binder-envs or PUT /binder-envs/[id]
+    Cat ->> EnvService: done
+    EnvService ->> CI: done

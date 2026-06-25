@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor VREOps as VRE operator
+    participant EnvService as BinderEnv-service
+    participant Cat as Catalogue-service
+    participant k8s as K8s API
+    participant Puller as Image-puller<br>(daemonset)
+    participant GHCR as OCI registry (ghcr.io)
+    VREOps -->> Cat: configure job environment
+    EnvService ->> Cat: GET /binder-envs/
+    EnvService ->> k8s: Update image puller daemonset for envs with pre_pull=True
+    k8s -->> Puller: update
+    GHCR ->> Puller: pull images

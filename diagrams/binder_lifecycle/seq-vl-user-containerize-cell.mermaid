@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor VLUser as VL user
+    participant JL as JupyterLab<br>(single user)
+    participant ContService as Containerizer-service
+    participant Cat as Catalogue-service
+    JL ->> Cat: GET /binder-envs/
+    Cat ->> JL: BinderEnvs[ ]
+    JL ->> JL: display base images list
+    VLUser ->> JL: analyze cell
+    VLUser ->> JL: select base image
+    VLUser ->> JL: containerize cell
+    JL ->> +ContService: containerize cell with base image

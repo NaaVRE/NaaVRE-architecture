@@ -1,0 +1,8 @@
+sequenceDiagram
+    actor VLUser as VL user
+    participant Binder as BinderHub
+    participant GHCR as OCI registry (ghcr.io)
+    VLUser ->> Binder: /v2/gh/org/repo/latest
+    GHCR -->> Binder: pull image if not present
+    Binder ->> Binder: start VL
+    Binder ->> VLUser: redirect
