@@ -5,8 +5,11 @@ sequenceDiagram
     participant EnvService as BinderEnv-service
     participant Binder as BinderHub
     participant GHCR as OCI registry (ghcr.io)
+    participant Cat as Catalogue-service
     VREOps ->> HelmHook: helm upgrade
     alt if naavre_requirements changed
+        HelmHook->> Cat: GET /binder-environments/?pre_pull=true
+        loop for each environment
         HelmHook->> EnvService: /build/gh/org/repo/latest
         note over EnvService,Cat: this is identical to what happens on release of the VL
         EnvService ->> Binder: /build/gh/org/repo/latest (build_only=true)
@@ -18,4 +21,5 @@ sequenceDiagram
         EnvService ->> Cat: POST /binder-envs or PUT /binder-envs/[id]
         Cat ->> EnvService: done
         EnvService ->> HelmHook: done
+        end
     end
