@@ -1,0 +1,16 @@
+sequenceDiagram
+    actor VREOps as VRE operator
+    box
+    participant Cron as image-puller-sync<br>(CronJob)
+    participant EnvService as environment-service<br>(Deployment)
+    participant Puller as image-puller<br>(Daemonset)
+    end
+    participant Cat as Catalogue-service
+    participant k8s as K8s API
+    participant GHCR as OCI registry (ghcr.io)
+    VREOps -->> Cat: Configure environments `pre_pull` field
+    Cron ->> EnvService: POST /image-puller/sync
+    EnvService ->> Cat: GET /binder-environments/?pre_pull=true
+    EnvService ->> k8s: Update image puller daemonset
+    k8s -->> Puller: updates
+    GHCR ->> Puller: pull images
